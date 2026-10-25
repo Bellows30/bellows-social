@@ -7,6 +7,10 @@ Used by Claude every week when writing posts for Instagram and Facebook
 **Balloon Bonkers: Keep It Up!** A Roblox party game: keep the balloon in the air,
 hit it so the *next* player misses, and shout GOTCHA when they do.
 
+**Play link:** https://www.roblox.com/games/101666093048466/Balloon-Bonkers
+(Instagram captions can't have clickable links, so on Instagram say
+"search Balloon Bonkers on Roblox" or "link in bio". Facebook posts can include the link.)
+
 ## What makes it fun (post ideas come from here)
 - **GOTCHA:** drop shots and smashes that make the next player miss.
 - **Skill moves:** dive saves, charged hits, whackers (18 to unlock).

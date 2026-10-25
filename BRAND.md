@@ -53,5 +53,7 @@ parents follow too, so every post must be fine for a family to see.
 - Caption: 1 to 3 short lines, then 3 to 6 hashtags.
 - Hashtags to pick from: #BalloonBonkers #Roblox #RobloxGame #IndieGame #GameDev
   #PartyGame #KeepItUp #RobloxDev
-- Default schedule: 3 posts a week (Tue, Thu, Sat) around 17:00 Danish time,
-  when kids are home from school.
+- Schedule (Brian, 2026-10-25): Instagram + Facebook ONE post a day around 17:00 Danish time (never more).
+  TikTok + YouTube Shorts via Metricool around 18:00 on weekdays (free plan: 20 posts/month).
+- Avoid engagement bait ("tag a friend", "comment YES", "share this"): end with a real question instead.
+- Only claim what the live Roblox game page or Brian confirms (e.g. don't say how maps unlock).

@@ -1,0 +1,57 @@
+name: Publish social posts
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # every hour, at 17 minutes past
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "publish = post what's due now, check = only test the Meta connection"
+        type: choice
+        options: [publish, check]
+        default: publish
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test the Meta connection
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'check'
+        run: python publish.py --check
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          GRAPH_VERSION: ${{ vars.GRAPH_VERSION }}
+
+      - name: Publish posts that are due
+        if: github.event_name == 'schedule' || inputs.mode == 'publish'
+        run: python publish.py
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          GRAPH_VERSION: ${{ vars.GRAPH_VERSION }}
+
+      - name: Save what was published
+        if: always() && (github.event_name == 'schedule' || inputs.mode == 'publish')
+        run: |
+          git config user.name "bellows-social-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add queue
+          if git diff --cached --quiet; then
+            echo "No changes to save."
+          else
+            git commit -m "Record published posts"
+            git pull --rebase
+            git push
+          fi

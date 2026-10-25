@@ -3,6 +3,28 @@
 The research step behind every post. Read this before writing. Updated 2026-10-25.
 Sources are listed at the bottom; numbers from marketing blogs are their own estimates.
 
+## 0. CURRENT PHASE: unlock players under 16 (checked 2026-10-25)
+
+Balloon Bonkers is public but only for **ages 16+ and trusted friends**. To reach players
+under 16 (Roblox Select 9-15 and Kids 5-8), Roblox needs **250 unique plays from highly engaged,
+age-checked players 16+ within a 60-day window**. Status on 25 Oct: **3 of 250**. Every other
+step is done (rating, ID, 2FA, publishing fee; fee refunded 19 Jan 2027).
+"Highly engaged" is judged on account age, play history and platform spend, so brand-new or
+alt accounts don't help.
+
+What this means for marketing until the 250 are reached:
+- **Target players 16+**, not young kids. A kid who clicks now can't join, which wastes the
+  post and can annoy them.
+- Pitch it as a **party game for friends and chaos fans**: older teens, young adults,
+  streamers, and other Roblox developers.
+- Best channels for 16+ Roblox players: Roblox DevForum (developers play each other's games),
+  r/roblox and r/robloxgamedev, Roblox Discord communities, friends and family with
+  age-checked accounts, and TikTok/Shorts with humour that works for older teens.
+- Spooky Night content still works, but frame it for 16+.
+- Track the counter weekly: Creator Hub → Balloon Bonkers → Manage audience.
+- Day-1 retention was 1.82% on a tiny sample (7-day average, 25 Oct). Watch it once real
+  players arrive: if it stays low, the first minute of the game needs work.
+
 ## 1. Who plays (consumer insight)
 
 - Roblox had about 132 million daily players in Q1 2026. Among age-checked players:

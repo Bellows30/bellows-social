@@ -103,6 +103,47 @@ Every Monday:
 - If views go up but players don't stay, the problem is the game's first minute,
   not the marketing. Report that to Brian.
 
+## 6. What works for game Shorts right now (web research, 26 Oct 2026)
+
+Strongest evidence is what the platforms themselves say they measure. Indie case studies
+are self-reported. No verified Roblox clip-level case study was found.
+
+What we copy:
+1. **Finishing and rewatching** is TikTok's strongest signal; followers don't matter directly (TikTok, official).
+   → 18-25 s, no dead frames, end quickly. Payoff in the last 3 s so people watch to the end.
+2. **Sends** (sharing in DMs) are Instagram's top signal for reaching non-followers (Mosseri, Jan 2025).
+   → On-screen text that names a type of friend ("THAT ONE FRIEND WHO ALWAYS MISSES") so people send it.
+     We never write "send this / tag a friend" (bait); the text just makes it sendable.
+3. **The point in the first 3 s, with text on screen** (TikTok ad data). → Open mid-action, never on a title.
+4. **One idea per clip**, then re-edit the winner. The same footage cut faster went from 10k to 7M views (The Matriarch).
+   → Make 2-3 cuts of a good moment; keep the one with the best "viewed vs swiped away".
+5. **Party games break out on funny emergent moments** (R.E.P.O.), not trailers. → Real chaos, real reactions, game SFX.
+6. **Volume and consistency**: one breakout lifts the next videos (DREADMOOR). → Keep 3-5 clips a week, don't give up early.
+7. **Game name on screen the whole clip.** TikTok bio links need 1,000 followers and Shorts links aren't clickable,
+   so search is the path. → Small "BALLOON BONKERS • Roblox" bar under the gameplay, plus the end card.
+8. **Real questions are fine, bait is penalised** (TikTok For You rules). → End captions with a real question,
+   e.g. "What hazard should we add next?", then build/credit the best answer.
+9. **Never upload a file with another app's watermark** (TikTok and Instagram downrank it). → Always upload our clean mp4.
+10. **Measure Shorts by engaged views and "viewed vs swiped away"**, not raw views (YouTube changed view counting in Mar 2025).
+11. **Roblox share links** (Creator Dashboard) show which platform brings engaged players. → One link per platform (to do).
+12. Possible extra channels to test: **Instagram Trial Reels** (shown only to non-followers, good for A/B hooks) and
+    **Roblox Moments** (in-app clip feed, 13+ beta, viewers jump straight into the game).
+
+Stop: slow intros or logo stingers, feature-list montages, deleting and reposting Shorts that flop, over-polished trailer cuts.
+
+Sources: https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you/ ·
+https://www.socialmediatoday.com/news/instagram-shares-algorithm-insights-2025/738034/ ·
+https://ads.tiktok.com/business/en-US/blog/9-creative-tips-to-drive-auction-ad-performance ·
+https://www.gamedeveloper.com/game-platforms/from-400-to-20-000-wishlists-with-1-video-how-tiktok-can-make-your-game-go-viral ·
+https://skydome.itch.io/thehive/devlog/1164902/10000-wishlists-in-10-days-what-changed-for-the-hive ·
+https://knowyourmeme.com/memes/subcultures/repo ·
+https://gameworldobserver.com/2026/05/21/case-study-how-dreadmoor-reached-200000-wishlists-and-where-they-came-from ·
+https://www.tiktok.com/community-guidelines/en/fyf-standards ·
+https://techcrunch.com/2025/03/26/youtube-is-changing-how-youtube-shorts-views-are-counted ·
+https://techcrunch.com/2024/12/10/instagram-rolls-out-trial-reels-that-arent-shown-to-a-creators-followers ·
+https://create.roblox.com/docs/en-us/production/promotion/share-links.md ·
+https://techcrunch.com/2025/09/05/roblox-announces-short-form-video-feed-for-gameplay-clips-new-ai-tools-for-creators-and-more
+
 ## Sources
 - Roblox discovery docs: https://create.roblox.com/docs/discovery
 - Roblox, "Optimizing discovery" (June 2026): https://about.roblox.com/newsroom/2026/06/optimizing-discovery-great-games-reach-millions-players-roblox

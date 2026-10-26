@@ -58,5 +58,8 @@ parents follow too, so every post must be fine for a family to see.
   TikTok + YouTube Shorts via Metricool around 18:00 on weekdays (free plan: 20 posts/month).
 - TikTok/YouTube: real gameplay VIDEO only, never silent photo posts (Brian 2026-10-26: "no sound, just still pictures").
   Always mix Brian's own game music (Balloon Bonkers/music-inbox, he made it) under the game sound; never TikTok's auto music.
+- Clip recipe (RESEARCH.md section 6): open mid-action with stakes text; one idea per clip; 18-25 s;
+  "BALLOON BONKERS • Roblox" bar on screen the whole time; payoff near the end; short 2 s "YOUR TURN" end card;
+  text that names a kind of friend so people send it; caption ends with a real question.
 - Avoid engagement bait ("tag a friend", "comment YES", "share this"): end with a real question instead.
 - Only claim what the live Roblox game page or Brian confirms (e.g. don't say how maps unlock).

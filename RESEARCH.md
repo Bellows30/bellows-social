@@ -129,6 +129,19 @@ What we copy:
 12. Possible extra channels to test: **Instagram Trial Reels** (shown only to non-followers, good for A/B hooks) and
     **Roblox Moments** (in-app clip feed, 13+ beta, viewers jump straight into the game).
 
+### 6b. Case: Kio, "How Much ROBUX I Make as a Small Roblox Developer" (YouTube, 25 Oct 2026; self-reported)
+Horror game ANALOG, released ~6-10 Oct 2026, peak 4.1K CCU, claims ~873K Robux in under 2 weeks.
+- **250 engaged players (Kids & Select unlock) in 2.5 days** with a Roblox Ads Manager campaign on the
+  **Engagement** objective (~10 ad credits/day, 5.8% CTR). That objective exists exactly for this threshold
+  (Roblox docs). Costs Robux/money, so it is Brian's call; we stay free unless he says otherwise.
+- After unlock: Plays ads (9-10% CTR), and he kept ads running until Home Recommendation impressions overtook
+  sponsored impressions, then stopped. Ads alone bring "cold" players who bounce; social brings warmer ones.
+- His viral Short (1.3M views) = one unique mechanic as a question, answered instantly:
+  "Must be quiet... but why? Because it hears your mic." → Our equivalent: "Make your friend miss" / "Knocked out? Send a whale".
+- An earlier game grew from a "Day 1 of making a ___ game" devlog series (several 0.5-1.7M-view Shorts, 15K Discord in a week).
+  → Test a devlog series from Brian's side ("Day N of making a Roblox party game").
+- He uses a game-named TikTok account. Source: https://www.youtube.com/watch?v=mMfwlQKrHCw
+
 Stop: slow intros or logo stingers, feature-list montages, deleting and reposting Shorts that flop, over-polished trailer cuts.
 
 Sources: https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you/ ·

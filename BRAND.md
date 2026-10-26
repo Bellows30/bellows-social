@@ -11,6 +11,13 @@ hit it so the *next* player misses, and shout GOTCHA when they do.
 (Instagram captions can't have clickable links, so on Instagram say
 "search Balloon Bonkers on Roblox" or "link in bio". Facebook posts can include the link.)
 
+**Tracking links (Roblox share links, made 26 Oct; results in Creator Hub → Creations → Share links → View analytics):**
+- Facebook: https://www.roblox.com/join/kfdu0  (use in every FB caption)
+- Instagram: https://www.roblox.com/join/ep7fi  (bio link; captions can't link)
+- YouTube: https://www.roblox.com/join/n45p1
+- TikTok: https://www.roblox.com/join/nl90q  (bio link once allowed)
+(Roblox rejects "instagram"/"facebook" as campaign names, so they're called ig-posts / fb-posts.)
+
 ## What makes it fun (post ideas come from here)
 - **GOTCHA:** drop shots and smashes that make the next player miss.
 - **Skill moves:** dive saves, charged hits, whackers (18 to unlock).

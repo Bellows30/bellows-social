@@ -23,7 +23,8 @@ One JSON file per post in `queue/`, e.g. `queue/2026-10-27-new-level.json`:
 
 Rules:
 - `publish_at` must include the timezone (`+01:00` for Danish winter time, `+02:00` in summer).
-- Instagram needs an image, and it must be a **.jpg**.
+- Instagram needs an image (a **.jpg**) or a `"video"` (an **.mp4**, 9:16, 3-90 s).
+  A video becomes an Instagram Reel (also shown in the feed) and a Facebook Page video.
 - Facebook can post text only, or text with an image.
 
 ## One-time setup

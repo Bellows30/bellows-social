@@ -6,10 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "publish = post what's due now, check = only test the Meta connection"
+        description: "publish = post what's due now, check = only test the Meta connection, test-video = let Instagram process a video without posting it"
         type: choice
-        options: [publish, check]
+        options: [publish, check, test-video]
         default: publish
+      video:
+        description: "for test-video: path of the .mp4 in this repo"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -31,6 +35,15 @@ jobs:
       - name: Test the Meta connection
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'check'
         run: python publish.py --check
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          GRAPH_VERSION: ${{ vars.GRAPH_VERSION }}
+
+      - name: Test a video (nothing is posted)
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'test-video'
+        run: |
+          curl -sSI "https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@${GITHUB_SHA}/${{ inputs.video }}" | grep -i -E "^HTTP|content-type|content-length"
+          python publish.py --test-video "${{ inputs.video }}"
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           GRAPH_VERSION: ${{ vars.GRAPH_VERSION }}

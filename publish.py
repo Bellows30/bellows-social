@@ -13,6 +13,11 @@ Usage:
   python publish.py            publish everything that is due
   python publish.py --check    only test the token and show the connected accounts
   python publish.py --dry-run  show what would be published, without posting
+  python publish.py --test-video media/x.mp4
+                               let Instagram process a video as a Reel, WITHOUT publishing it
+
+A post can have "image" (a .jpg) or "video" (an .mp4, 9:16, H.264/AAC, 3-90 s).
+Videos become an Instagram Reel (also shown in the feed) and a Facebook Page video.
 
 Settings (GitHub: Settings -> Secrets and variables -> Actions):
   META_PAGE_TOKEN  (secret)  a never-expiring Page access token for the Page
@@ -90,10 +95,36 @@ def public_image_url(path):
             + urllib.parse.quote(path.lstrip("/")))
 
 
+def public_video_url(path):
+    """Videos are served through jsDelivr's GitHub CDN, which sends the correct video/mp4 type."""
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    # Pin to the exact commit when we know it: jsDelivr caches branch URLs for hours.
+    ref = os.environ.get("GITHUB_SHA") or os.environ.get("GITHUB_REF_NAME") or "main"
+    if not repo:
+        raise RuntimeError("GITHUB_REPOSITORY is not set.")
+    return f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/" + urllib.parse.quote(path.lstrip("/"))
+
+
+def wait_for_container(container, tries=60, delay=5):
+    for _ in range(tries):
+        status = graph("GET", container, {"fields": "status_code,status"})
+        code = status.get("status_code")
+        if code == "FINISHED":
+            return
+        if code in ("ERROR", "EXPIRED"):
+            raise RuntimeError(f"Instagram could not process the media ({code}): {status.get('status', '')}")
+        time.sleep(delay)
+    raise RuntimeError("Instagram took too long to process the media.")
+
+
 # ---------------------------------------------------------------- publishing
 
 def publish_facebook(page_id, post):
     caption = post.get("caption", "")
+    if post.get("video"):
+        res = graph("POST", f"{page_id}/videos",
+                    {"file_url": public_video_url(post["video"]), "description": caption})
+        return res.get("id")
     if post.get("image"):
         res = graph("POST", f"{page_id}/photos",
                     {"url": public_image_url(post["image"]), "message": caption})
@@ -104,22 +135,21 @@ def publish_facebook(page_id, post):
 
 
 def publish_instagram(ig_id, post):
+    if post.get("video"):
+        container = graph("POST", f"{ig_id}/media",
+                          {"media_type": "REELS", "video_url": public_video_url(post["video"]),
+                           "caption": post.get("caption", ""), "share_to_feed": "true"})["id"]
+        wait_for_container(container)
+        return graph("POST", f"{ig_id}/media_publish", {"creation_id": container})["id"]
     image = post.get("image")
     if not image:
-        raise RuntimeError("Instagram posts need an image.")
+        raise RuntimeError("Instagram posts need an image or a video.")
     if not image.lower().endswith((".jpg", ".jpeg")):
         raise RuntimeError("Instagram's API only accepts JPEG images (.jpg).")
     container = graph("POST", f"{ig_id}/media",
                       {"image_url": public_image_url(image),
                        "caption": post.get("caption", "")})["id"]
-    # Wait until Instagram has processed the image (usually a few seconds).
-    for _ in range(20):
-        status = graph("GET", container, {"fields": "status_code"}).get("status_code")
-        if status == "FINISHED":
-            break
-        if status in ("ERROR", "EXPIRED"):
-            raise RuntimeError(f"Instagram could not process the image ({status}).")
-        time.sleep(3)
+    wait_for_container(container, tries=20, delay=3)
     return graph("POST", f"{ig_id}/media_publish", {"creation_id": container})["id"]
 
 
@@ -165,12 +195,17 @@ def validate(post):
     unknown = [p for p in post.get("platforms", []) if p not in PLATFORMS]
     if unknown:
         problems.append(f"unknown platforms {unknown}")
-    image = post.get("image")
+    image, video = post.get("image"), post.get("video")
     if image and not os.path.exists(os.path.join(ROOT, image)):
         problems.append(f"image not found: {image}")
-    if "instagram" in post.get("platforms", PLATFORMS):
+    if video:
+        if not os.path.exists(os.path.join(ROOT, video)):
+            problems.append(f"video not found: {video}")
+        elif not video.lower().endswith(".mp4"):
+            problems.append("video must be .mp4")
+    elif "instagram" in post.get("platforms", PLATFORMS):
         if not image:
-            problems.append("instagram needs an image")
+            problems.append("instagram needs an image or a video")
         elif not image.lower().endswith((".jpg", ".jpeg")):
             problems.append("instagram needs a .jpg image")
     return problems
@@ -185,6 +220,17 @@ def main():
               else "Instagram:     NOT linked to this Page")
         print("Connection OK." if ig_id else "Link Instagram to the Page, then check again.")
         return 0 if ig_id else 1
+
+    if "--test-video" in args:
+        path = sys.argv[sys.argv.index("--test-video") + 1]
+        _, _, ig_id, _ = accounts()
+        url = public_video_url(path)
+        print("Testing (not publishing):", url)
+        container = graph("POST", f"{ig_id}/media",
+                          {"media_type": "REELS", "video_url": url, "caption": "test", "share_to_feed": "true"})["id"]
+        wait_for_container(container)
+        print("Instagram accepted and processed the video. Container NOT published:", container)
+        return 0
 
     dry = "--dry-run" in args
     now = datetime.now(timezone.utc)

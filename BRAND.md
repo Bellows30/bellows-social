@@ -49,7 +49,8 @@ parents follow too, so every post must be fine for a family to see.
 6. **Event or update news:** Spooky Night, new maps, new balloons.
 
 ## Format
-- Instagram needs an image, and it must be a **.jpg** (1080x1080 or 1080x1350 works best).
+- Instagram needs an image (**.jpg**, 1080x1350 best) or a video (**.mp4** 1080x1920 = a Reel).
+  From 27 Oct, mix Reels into the daily IG/FB slot (video beats stills for reach); still max ONE post a day.
 - Caption: 1 to 3 short lines, then 3 to 6 hashtags.
 - Hashtags to pick from: #BalloonBonkers #Roblox #RobloxGame #IndieGame #GameDev
   #PartyGame #KeepItUp #RobloxDev

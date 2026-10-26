@@ -55,5 +55,7 @@ parents follow too, so every post must be fine for a family to see.
   #PartyGame #KeepItUp #RobloxDev
 - Schedule (Brian, 2026-10-25): Instagram + Facebook ONE post a day around 17:00 Danish time (never more).
   TikTok + YouTube Shorts via Metricool around 18:00 on weekdays (free plan: 20 posts/month).
+- TikTok/YouTube: real gameplay VIDEO only, never silent photo posts (Brian 2026-10-26: "no sound, just still pictures").
+  Always mix Brian's own game music (Balloon Bonkers/music-inbox, he made it) under the game sound; never TikTok's auto music.
 - Avoid engagement bait ("tag a friend", "comment YES", "share this"): end with a real question instead.
 - Only claim what the live Roblox game page or Brian confirms (e.g. don't say how maps unlock).

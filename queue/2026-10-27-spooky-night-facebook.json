@@ -4,5 +4,11 @@
     "facebook"
   ],
   "caption": "Spooky Night is on in Balloon Bonkers 👻🎃\n\nA ghost steals the balloon mid-rally and drops it somewhere new. Good luck keeping it up.\nEarn candy every round for the Pumpkin Whacker and the Ghost Balloon. Ends Monday night, 2 November.\n\nOpen to players 16+ on Roblox right now. Play free: https://www.roblox.com/join/kfdu0\n\n#BalloonBonkers #Roblox #RobloxGame #PartyGame #Halloween",
-  "video": "media/2026-10-27-video/ghost-v4.mp4"
+  "video": "media/2026-10-27-video/ghost-v4.mp4",
+  "attempts": {
+    "facebook": 1
+  },
+  "errors": {
+    "facebook": "Meta API error 400 on 1312132938660732/videos: Unable to fetch video file from URL."
+  }
 }

@@ -25,7 +25,7 @@ hit it so the *next* player misses, and shout GOTCHA when they do.
 - **Knocked out isn't boring:** you join the Balcony Bandits and throw stuff at the players still in.
 - **12 crazy places** to play in.
 - **Collect them all:** balloon skins and the Balloon Road progression.
-- **Events:** Spooky Night runs until 3 November 2026.
+- **Events:** Spooky Night runs until Monday night, 2 November 2026 (ends 3 Nov 00:00 UTC).
 
 ## Who we talk to
 Roblox players and their friends. Instagram and Facebook users are 13+, and many

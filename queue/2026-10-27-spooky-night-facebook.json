@@ -8,7 +8,11 @@
   "attempts": {
     "facebook": 1
   },
-  "errors": {
-    "facebook": "Meta API error 400 on 1312132938660732/videos: Unable to fetch video file from URL."
+  "errors": {},
+  "published": {
+    "facebook": {
+      "id": "28662285403473408",
+      "at": "2026-10-27T16:22:32.264153+00:00"
+    }
   }
 }

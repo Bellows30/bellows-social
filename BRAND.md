@@ -62,7 +62,11 @@ parents follow too, so every post must be fine for a family to see.
 - Hashtags to pick from: #BalloonBonkers #Roblox #RobloxGame #IndieGame #GameDev
   #PartyGame #KeepItUp #RobloxDev
 - Schedule (Brian, 2026-10-25): Instagram + Facebook ONE post a day around 17:00 Danish time (never more).
-  TikTok + YouTube Shorts via Metricool around 18:00 on weekdays (free plan: 20 posts/month).
+  TikTok + YouTube Shorts around 18:00. FROM 27 OCT (Brian: "my pc is always on"): upload in Brian's Chrome with
+  TikTok Studio + YouTube Studio's own scheduling (no limits, free). Make an under-10 MB copy (ffmpeg -b:v 3200k),
+  put it in marketing/clips/upload/ on his PC, stage it, then file_upload from /mnt/user-data/uploads/... .
+  TikTok: decline the content-check setting popup, set "Offentliggør opslagets indhold" -> "Dit brand", Tidsplan.
+  YouTube: not made for kids, category Spil (Gaming), Planlæg. Metricool (20/month) is only the backup now.
 - TikTok/YouTube: real gameplay VIDEO only, never silent photo posts (Brian 2026-10-26: "no sound, just still pictures").
   Always mix Brian's own game music (Balloon Bonkers/music-inbox, he made it) under the game sound; never TikTok's auto music.
 - Clip recipe (RESEARCH.md section 6): open mid-action with stakes text; one idea per clip; 18-25 s;

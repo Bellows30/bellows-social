@@ -140,6 +140,8 @@ Horror game ANALOG, released ~6-10 Oct 2026, peak 4.1K CCU, claims ~873K Robux i
   "Must be quiet... but why? Because it hears your mic." → Our equivalent: "Make your friend miss" / "Knocked out? Send a whale".
 - An earlier game grew from a "Day 1 of making a ___ game" devlog series (several 0.5-1.7M-view Shorts, 15K Discord in a week).
   → Test a devlog series from Brian's side ("Day N of making a Roblox party game").
+- OUR RESULT (27 Oct): Brian already ran an Engagement campaign (63 USD over 28 days, 69 plays, engaged count 2→3)
+  and paused it. Kio's result did not repeat for us; no more ad spend unless Brian decides otherwise.
 - He uses a game-named TikTok account. Source: https://www.youtube.com/watch?v=mMfwlQKrHCw
 
 Stop: slow intros or logo stingers, feature-list montages, deleting and reposting Shorts that flop, over-polished trailer cuts.

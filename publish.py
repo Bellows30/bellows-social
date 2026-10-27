@@ -17,7 +17,7 @@ Usage:
                                let Instagram process a video as a Reel, WITHOUT publishing it
 
 A post can have "image" (a .jpg) or "video" (an .mp4, 9:16, H.264/AAC, 3-90 s).
-Videos become an Instagram Reel (also shown in the feed) and a Facebook Page video.
+Video files are uploaded directly (no public URL needed) and become an Instagram Reel (also shown in the feed) and a Facebook Page video.
 
 Settings (GitHub: Settings -> Secrets and variables -> Actions):
   META_PAGE_TOKEN  (secret)  a never-expiring Page access token for the Page
@@ -105,6 +105,45 @@ def public_video_url(path):
     return f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/" + urllib.parse.quote(path.lstrip("/"))
 
 
+def http_post_raw(url, body, headers):
+    req = urllib.request.Request(url, data=body, method="POST")
+    for k, v in headers.items():
+        req.add_header(k, v)
+    try:
+        with urllib.request.urlopen(req, timeout=300) as resp:
+            return json.load(resp)
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"Upload error {e.code} on {url.split('?')[0]}: {e.read().decode(errors='replace')[:400]}") from None
+
+
+def ig_reel_container(ig_id, path, caption):
+    """Create a Reel container and upload the video file straight to Instagram (resumable upload)."""
+    container = graph("POST", f"{ig_id}/media",
+                      {"media_type": "REELS", "upload_type": "resumable",
+                       "caption": caption, "share_to_feed": "true"})["id"]
+    with open(os.path.join(ROOT, path), "rb") as f:
+        data = f.read()
+    http_post_raw(f"https://rupload.facebook.com/ig-api-upload/{GRAPH_VERSION}/{container}", data,
+                  {"Authorization": f"OAuth {token()}", "offset": "0", "file_size": str(len(data))})
+    return container
+
+
+def fb_video_upload(page_id, path, description):
+    """Upload the video file straight to the Facebook Page (multipart)."""
+    boundary = "----bellows" + str(int(time.time() * 1000))
+    with open(os.path.join(ROOT, path), "rb") as f:
+        data = f.read()
+    parts = [f"--{boundary}\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n".encode()
+             + description.encode("utf-8") + b"\r\n",
+             f"--{boundary}\r\nContent-Disposition: form-data; name=\"source\"; filename=\"{os.path.basename(path)}\"\r\n"
+             f"Content-Type: video/mp4\r\n\r\n".encode() + data + b"\r\n",
+             f"--{boundary}--\r\n".encode()]
+    res = http_post_raw(f"https://graph-video.facebook.com/{GRAPH_VERSION}/{page_id}/videos", b"".join(parts),
+                        {"Authorization": f"Bearer {token()}",
+                         "Content-Type": f"multipart/form-data; boundary={boundary}"})
+    return res.get("id")
+
+
 def wait_for_container(container, tries=60, delay=5):
     for _ in range(tries):
         status = graph("GET", container, {"fields": "status_code,status"})
@@ -122,9 +161,7 @@ def wait_for_container(container, tries=60, delay=5):
 def publish_facebook(page_id, post):
     caption = post.get("caption", "")
     if post.get("video"):
-        res = graph("POST", f"{page_id}/videos",
-                    {"file_url": public_video_url(post["video"]), "description": caption})
-        return res.get("id")
+        return fb_video_upload(page_id, post["video"], caption)
     if post.get("image"):
         res = graph("POST", f"{page_id}/photos",
                     {"url": public_image_url(post["image"]), "message": caption})
@@ -136,9 +173,7 @@ def publish_facebook(page_id, post):
 
 def publish_instagram(ig_id, post):
     if post.get("video"):
-        container = graph("POST", f"{ig_id}/media",
-                          {"media_type": "REELS", "video_url": public_video_url(post["video"]),
-                           "caption": post.get("caption", ""), "share_to_feed": "true"})["id"]
+        container = ig_reel_container(ig_id, post["video"], post.get("caption", ""))
         wait_for_container(container)
         return graph("POST", f"{ig_id}/media_publish", {"creation_id": container})["id"]
     image = post.get("image")
@@ -224,10 +259,8 @@ def main():
     if "--test-video" in args:
         path = sys.argv[sys.argv.index("--test-video") + 1]
         _, _, ig_id, _ = accounts()
-        url = public_video_url(path)
-        print("Testing (not publishing):", url)
-        container = graph("POST", f"{ig_id}/media",
-                          {"media_type": "REELS", "video_url": url, "caption": "test", "share_to_feed": "true"})["id"]
+        print("Testing (not publishing):", path)
+        container = ig_reel_container(ig_id, path, "test")
         wait_for_container(container)
         print("Instagram accepted and processed the video. Container NOT published:", container)
         return 0

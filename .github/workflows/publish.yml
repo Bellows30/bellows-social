@@ -42,7 +42,6 @@ jobs:
       - name: Test a video (nothing is posted)
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'test-video'
         run: |
-          curl -sSI "https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@${GITHUB_SHA}/${{ inputs.video }}" | grep -i -E "^HTTP|content-type|content-length"
           python publish.py --test-video "${{ inputs.video }}"
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}

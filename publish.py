@@ -148,7 +148,7 @@ def ig_publish(ig_id, container, tries=4, delay=8):
     """media_publish sometimes answers 'Media ID is not available' right after FINISHED; retry a few times."""
     for i in range(tries):
         try:
-            return ig_publish(ig_id, container)
+            return graph("POST", f"{ig_id}/media_publish", {"creation_id": container})["id"]
         except RuntimeError as e:
             if "not available" not in str(e) or i == tries - 1:
                 raise

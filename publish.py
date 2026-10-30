@@ -144,6 +144,17 @@ def fb_video_upload(page_id, path, description):
     return res.get("id")
 
 
+def ig_publish(ig_id, container, tries=4, delay=8):
+    """media_publish sometimes answers 'Media ID is not available' right after FINISHED; retry a few times."""
+    for i in range(tries):
+        try:
+            return ig_publish(ig_id, container)
+        except RuntimeError as e:
+            if "not available" not in str(e) or i == tries - 1:
+                raise
+            time.sleep(delay)
+
+
 def wait_for_container(container, tries=60, delay=5):
     for _ in range(tries):
         status = graph("GET", container, {"fields": "status_code,status"})
@@ -175,7 +186,7 @@ def publish_instagram(ig_id, post):
     if post.get("video"):
         container = ig_reel_container(ig_id, post["video"], post.get("caption", ""))
         wait_for_container(container)
-        return graph("POST", f"{ig_id}/media_publish", {"creation_id": container})["id"]
+        return ig_publish(ig_id, container)
     image = post.get("image")
     if not image:
         raise RuntimeError("Instagram posts need an image or a video.")
@@ -185,7 +196,7 @@ def publish_instagram(ig_id, post):
                       {"image_url": public_image_url(image),
                        "caption": post.get("caption", "")})["id"]
     wait_for_container(container, tries=20, delay=3)
-    return graph("POST", f"{ig_id}/media_publish", {"creation_id": container})["id"]
+    return ig_publish(ig_id, container)
 
 
 # ---------------------------------------------------------------- queue

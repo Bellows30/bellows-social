@@ -66,7 +66,9 @@ parents follow too, so every post must be fine for a family to see.
   TikTok Studio + YouTube Studio's own scheduling (no limits, free). Make an under-10 MB copy (ffmpeg -b:v 3200k),
   put it in marketing/clips/upload/ on his PC, stage it, then file_upload from /mnt/user-data/uploads/... .
   TikTok: decline the content-check setting popup, set "Offentliggør opslagets indhold" -> "Dit brand", Tidsplan.
-  YouTube: not made for kids, category Spil (Gaming), Planlæg. Metricool (20/month) is only the backup now.
+  YouTube: not made for kids, category Spil (Gaming), Planlæg. If YouTube Studio stalls on "Behandlingen begynder snart"
+  (no video link appears), retry once in a fresh tab; if it stalls again, schedule that Short via Metricool instead
+  (media = raw.githubusercontent.com link to the full-size mp4 in media/). Metricool (20/month) is the backup.
 - TikTok/YouTube: real gameplay VIDEO only, never silent photo posts (Brian 2026-10-26: "no sound, just still pictures").
   Always mix Brian's own game music (Balloon Bonkers/music-inbox, he made it) under the game sound; never TikTok's auto music.
 - Clip recipe (RESEARCH.md section 6): open mid-action with stakes text; one idea per clip; 18-25 s;

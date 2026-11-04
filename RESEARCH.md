@@ -144,6 +144,18 @@ Horror game ANALOG, released ~6-10 Oct 2026, peak 4.1K CCU, claims ~873K Robux i
   and paused it. Kio's result did not repeat for us; no more ad spend unless Brian decides otherwise.
 - He uses a game-named TikTok account. Source: https://www.youtube.com/watch?v=mMfwlQKrHCw
 
+### 6c. Sasquatch B Studios, "Watch This if You Haven't Started Marketing Your Game" (YouTube, 86K views; Steam-focused opinion + sponsor segments)
+8 methods: viral idea, hook, streamers/YouTubers, paid ads, journalists, Steam Next Fest, online posting (Twitter/Reddit), own brand. What fits us:
+- **Hook test:** "can you show your hook in a 20-second clip?" -> ours is GOTCHA (make the NEXT player miss) + balcony revenge. Keep every short on that.
+- **Creators:** send the game to many small creators ("it's all math: more eyeballs"). For Roblox: small Roblox YouTubers/TikTokers, no keys needed.
+  Claude may not message people: Claude can draft the pitch + list, Brian sends.
+- **Posting to other devs** (wishlist-swap style) mostly reaches developers, not players. Note: for the 16+ engaged-player gate, devs on
+  DevForum/r/robloxgamedev do count as players, so one honest post each is still worth it (already in the promotion plan).
+- **Own brand + momentum:** consistent posting beats one splash; devlogs build an audience over time ("Day N of making Balloon Bonkers").
+  Fits our YouTube results (about 1,000 Shorts views in week 1).
+- Not for us now: Steam Next Fest/wishlists, journalists, paid ads (Brian paused ads).
+Source: https://www.youtube.com/watch?v=Z4mqcR7wBcw
+
 Stop: slow intros or logo stingers, feature-list montages, deleting and reposting Shorts that flop, over-polished trailer cuts.
 
 Sources: https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you/ ·

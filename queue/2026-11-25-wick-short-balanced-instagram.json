@@ -7,9 +7,9 @@
   "caption": "We're building Wick's Wild Adventure: Boss Battles, coming soon to Roblox.\nFrom painted boss designs to real gameplay. Easy to learn, hard to master.\nWould you play it? Tell us why in the comments.\n#Roblox #IndieGame #GameDev",
   "published": {},
   "attempts": {
-    "instagram": 1
+    "instagram": 2
   },
   "errors": {
-    "instagram": "Upload error 400 on https://rupload.facebook.com/ig-api-upload/v23.0/18581196253075127: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+    "instagram": "Upload error 400 on https://rupload.facebook.com/ig-api-upload/v23.0/18581196451075127: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
   }
 }
